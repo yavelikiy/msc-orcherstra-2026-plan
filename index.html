@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MSC Orchestra — маршрут круиза, ноябрь 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--ink:#17212b;--muted:#64748b;--sea:#eaf4f8;--accent:#0b6b78;--paper:#fff;--line:#dce5ea}
+*{box-sizing:border-box}body{margin:0;background:#f3f6f8;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{padding:34px max(20px,calc((100% - 1180px)/2));background:linear-gradient(120deg,#103c52,#167b83);color:white}
+header h1{margin:0 0 8px;font-size:clamp(26px,4vw,42px)}header p{margin:0;max-width:850px;color:#e2f3f5}
+main{max-width:1180px;margin:24px auto;padding:0 18px}.notice{background:#fff8e7;border:1px solid #f0dca7;padding:14px 16px;border-radius:12px;margin-bottom:20px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tabs button{border:1px solid var(--line);background:white;padding:10px 15px;border-radius:999px;cursor:pointer;font-weight:650;color:var(--ink)}
+.tabs button.active{background:var(--accent);color:white;border-color:var(--accent)}
+.panel{display:none}.panel.active{display:block}.intro{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+.hero{width:100%;height:260px;object-fit:cover;border-radius:14px;background:#dbe7eb}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;box-shadow:0 3px 14px #1630420a}
+h2{margin:0 0 8px;font-size:25px}h3{margin:0 0 7px;font-size:18px}.muted{color:var(--muted)}.map{height:440px;border-radius:14px;border:1px solid var(--line);overflow:hidden}
+.points{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px;margin-top:14px}
+.point{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}.point p{margin:5px 0}.coords{font:13px ui-monospace,monospace;color:#526273}
+a{color:#075d78;text-decoration:none}a:hover{text-decoration:underline}.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.pill{display:inline-block;background:#e8f3f5;color:#145563;padding:3px 9px;border-radius:20px;font-size:12px;font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.photo{width:100%;height:180px;object-fit:cover;border-radius:10px;margin:10px 0}
+footer{max-width:1180px;margin:30px auto;padding:0 18px 35px;color:var(--muted);font-size:13px}
+@media(max-width:720px){.intro,.grid2{grid-template-columns:1fr}.map{height:380px}.hero{height:210px}}
+</style>
+</head>
+<body>
+<header>
+<h1>MSC Orchestra · Средиземноморский круиз</h1>
+<p>11–18 ноября 2026 · 6 взрослых · умеренный бюджет · самостоятельные прогулки в нормальном темпе</p>
+</header>
+<main>
+<div class="notice"><b>Важно по времени:</b> ориентиры возврата ниже — личный запас безопасности, а не официальное время all aboard. Всегда сверяйтесь с ежедневной программой MSC и возвращайтесь раньше указанного времени посадки. Координаты причалов приблизительные: конкретный терминал может измениться.</div>
+<div class="tabs" role="tablist">
+<button class="active" data-tab="corfu">13 ноя · Корфу</button>
+<button data-tab="bari">14 ноя · Бари</button>
+<button data-tab="athens">16 ноя · Афины / Пирей</button>
+<button data-tab="izmir">17 ноя · Измир</button>
+</div>
+
+<section id="corfu" class="panel active">
+<div class="intro">
+<div><span class="pill">12:00–19:00 в порту</span><h2>Корфу — старый город пешком</h2>
+<p>Компактный маршрут от порта к Новой крепости, через старый город, церковь Святого Спиридона, Листон и Спианаду — к Старой крепости. Лучше не перегружать день: крепость и прогулка по улочкам займут основную часть времени.</p>
+<p><b>Возврат к порту:</b> целиться на 17:30–18:00. От старого города до круизного терминала — ориентировочно 25–35 минут пешком либо короткая поездка на такси/шаттле.</p>
+</div>
+<img class="hero" src="images/corfu.svg" alt="Греческий остров и побережье">
+</div>
+<div class="card"><h3>Карта маршрута и точки</h3><div id="map-corfu" class="map"></div><div id="points-corfu" class="points"></div></div>
+<div class="grid2">
+<div class="card"><h3>Что попробовать</h3><p>Софрито (телятина в чесночно-винном соусе), пастицаду, бурдето, местное имбирное пиво tsitsibira. В старом городе выбирайте таверну с меню дня, а не только туристическим меню.</p></div>
+<div class="card"><h3>Практично</h3><p>Неровная брусчатка и подъёмы у крепостей. В ноябре возможны дождь и ветер. В Старой крепости зимний режим обычно короче летнего; часы и билеты проверьте накануне.</p><div class="links"><a href="https://www.hh.gr/en/destinations/corfu-old-fortress/" target="_blank" rel="noopener">Официальная информация о Старой крепости</a><a href="https://www.discovergreece.com/experiences/exploring-atmospheric-old-town-corfu" target="_blank" rel="noopener">Прогулка по старому городу</a></div></div>
+</div>
+</section>
+
+<section id="bari" class="panel">
+<div class="intro"><div><span class="pill">07:00–19:00 в порту</span><h2>Бари — старый город и фокачча</h2>
+<p>Пеший маршрут по Bari Vecchia: базилика Святого Николая, собор Сан-Сабино, улочки старого города, замок Svevo и остановка за focaccia barese. Это лучший день для знакомства с апулийской кухней и местной выпечкой.</p>
+<p><b>Возврат к порту:</b> 16:30–17:00. Старый город близко к порту, но оставьте запас на очередь/контроль и путь к нужному терминалу.</p></div>
+<img class="hero" src="images/bari.svg" alt="Итальянский город и побережье"></div>
+<div class="card"><h3>Карта маршрута и точки</h3><div id="map-bari" class="map"></div><div id="points-bari" class="points"></div></div>
+<div class="grid2">
+<div class="card"><h3>Что попробовать</h3><p>Focaccia barese (томат, оливки, оливковое масло), panzerotto, orecchiette alle cime di rapa, taralli. Для цели «настоящая итальянская пицца» можно выбрать пиццерию в старом городе, но фокаччу Бари пропускать не стоит.</p></div>
+<div class="card"><h3>Практично</h3><p>Узкие каменные улицы могут быть скользкими после дождя. В пекарне Fiore часто бывает очередь — лучше взять фокаччу навынос. Для шести человек в ресторане желательно заранее проверить часы и возможность посадки.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Panificio+Fiore+Bari" target="_blank" rel="noopener">Panificio Fiore на карте</a><a href="https://www.google.com/maps/search/?api=1&query=Bari+Vecchia+restaurants" target="_blank" rel="noopener">Еда в Bari Vecchia</a></div></div>
+</div>
+</section>
+
+<section id="athens" class="panel">
+<div class="intro"><div><span class="pill">07:00–17:00 в порту</span><h2>Афины — Акрополь, Плака, Монастираки</h2>
+<p>Из Пирея лучше сразу ехать в центр на такси или метро, затем посетить Акрополь в первой половине дня, пройти через Плаку к Монастираки и пообедать. Не добавляйте удалённые объекты: окно стоянки короче, чем в Бари.</p>
+<p><b>Возврат к порту:</b> 15:00–15:30. При пробках предпочтительнее метро, но проверьте доступность и время переходов с учётом группы.</p></div>
+<img class="hero" src="images/athens.svg" alt="Афинский Акрополь"></div>
+<div class="card"><h3>Карта маршрута и точки</h3><div id="map-athens" class="map"></div><div id="points-athens" class="points"></div></div>
+<div class="grid2">
+<div class="card"><h3>Что попробовать</h3><p>Сувлаки или гирос, греческий салат, тиропита/спанакопита, кофе. В туристических местах Плаки сравните меню и цены перед тем, как садиться.</p></div>
+<div class="card"><h3>Практично</h3><p>Билеты на Акрополь покупайте только через официальный билетный портал. Каменные поверхности могут быть скользкими; удобная обувь обязательна. Проверьте правила входа и временные слоты ближе к поездке.</p><div class="links"><a href="https://hhticket.gr/" target="_blank" rel="noopener">Официальные билеты Hellenic Heritage</a><a href="https://www.google.com/maps/dir/?api=1&origin=Piraeus+Cruise+Port&destination=Acropolis+of+Athens&travelmode=transit" target="_blank" rel="noopener">Маршрут порт → Акрополь</a></div></div>
+</div>
+</section>
+
+<section id="izmir" class="panel">
+<div class="intro"><div><span class="pill">07:00–16:00 в порту</span><h2>Измир — Конак и Кемералты</h2>
+<p>Городской маршрут без дальних выездов: площадь Конак и Часовая башня, рынок Кемералты, караван-сарай Kızlarağası Hanı, затем по времени — Агора Смирны. Рынок хорош для неспешной прогулки, кофе и местных перекусов.</p>
+<p><b>Возврат к порту:</b> 14:00–14:30. Не планируйте дальние поездки за пределы центра: отправление в 16:00.</p></div>
+<img class="hero" src="images/izmir.svg" alt="Городской пейзаж Турции"></div>
+<div class="card"><h3>Карта маршрута и точки</h3><div id="map-izmir" class="map"></div><div id="points-izmir" class="points"></div></div>
+<div class="grid2">
+<div class="card"><h3>Что попробовать</h3><p>Boyoz (часто с яйцом), kumru — горячий сэндвич, lokma, турецкий кофе или чай. На рынке удобно пробовать небольшими порциями.</p></div>
+<div class="card"><h3>Практично</h3><p>В Кемералты много крытых проходов, но покрытие неровное и местами скользкое. Наличные лиры пригодятся для небольших покупок. Время работы отдельных лавок в ноябре может отличаться.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Kemeralti+Bazaar+Izmir" target="_blank" rel="noopener">Кемералты на карте</a><a href="https://www.google.com/maps/search/?api=1&query=Agora+of+Smyrna+Izmir" target="_blank" rel="noopener">Агора Смирны на карте</a></div></div>
+</div>
+</section>
+<div class="card"><h3>Общее расписание</h3>
+<ul>
+<li>11.11 — Стамбул, отправление 20:00</li><li>12.11 — море</li><li>13.11 — Корфу 12:00–19:00</li><li>14.11 — Бари 07:00–19:00</li><li>15.11 — море</li><li>16.11 — Пирей / Афины 07:00–17:00</li><li>17.11 — Измир 07:00–16:00</li><li>18.11 — Стамбул, прибытие 09:00</li>
+</ul>
+</div>
+</main>
+<footer>Карты загружаются из OpenStreetMap через Leaflet и требуют интернета. Иллюстрации городов находятся локально в папке images и открываются без внешних фотохостингов. Ссылки на Google Maps открываются отдельно. Координаты точек — ориентировочные ориентиры для планирования, не гарантия расположения трапа/терминала. Время работы, стоимость входа, транспорт и билеты перепроверьте за 1–2 недели до круиза.</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const itineraries={
+corfu:{center:[39.6242,19.9235],zoom:15,points:[
+["Круизный порт Корфу",39.6275,19.9042,"Проверьте терминал и шаттл MSC."],
+["Новая крепость",39.6246,19.9174,"Венецианские укрепления и вид на старый порт."],
+["Церковь Святого Спиридона",39.62528,19.92269,"Главная церковь старого города."],
+["Листон / Спианада",39.6233,19.9244,"Площадь и аркады для кофе."],
+["Старая крепость",39.62323,19.92870,"Панорамы; проверьте зимние часы."]
+]},
+bari:{center:[41.1298,16.8710],zoom:16,points:[
+["Круизный порт Бари",41.1320,16.8670,"Координата ориентировочная — уточните причал."],
+["Basilica San Nicola",41.1307,16.8692,"Романская базилика."],
+["Cattedrale San Sabino",41.1290,16.8690,"Собор в старом городе."],
+["Castello Svevo",41.1305,16.8660,"Замок у границы старого города."],
+["Panificio Fiore",41.1303,16.8710,"Попробуйте focaccia barese; возможна очередь."]
+]},
+athens:{center:[37.9715,23.7260],zoom:14,points:[
+["Круизный порт Пирей",37.9450,23.6380,"Терминал зависит от судна; проверьте точку высадки."],
+["Акрополь",37.9715,23.7257,"Приходите к своему временному слоту."],
+["Плака",37.9708,23.7294,"Исторический квартал и обед."],
+["Монастираки",37.9765,23.7257,"Площадь, рынок и метро."]
+]},
+izmir:{center:[38.4190,27.1320],zoom:15,points:[
+["Круизный порт Измира",38.4360,27.1430,"Ориентир у Alsancak; фактический причал подтвердите у MSC."],
+["Площадь Конак / Часовая башня",38.4189,27.1287,"Главная городская площадь."],
+["Кемералты",38.4195,27.1325,"Рынок и торговые улочки."],
+["Kızlarağası Hanı",38.4203,27.1324,"Исторический караван-сарай, кофе."],
+["Агора Смирны",38.4197,27.1355,"Добавляйте, если хватает времени."]
+]}
+};
+const maps={};
+function gmaps(lat,lon){return `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`}
+function routeLink(points){const origin=points[0],dest=points[points.length-1],way=points.slice(1,-1).map(p=>`${p[1]},${p[2]}`).join("|");return `https://www.google.com/maps/dir/?api=1&origin=${origin[1]},${origin[2]}&destination=${dest[1]},${dest[2]}&waypoints=${way}&travelmode=walking`}
+function initMap(key,data){
+ const map=L.map("map-"+key).setView(data.center,data.zoom);maps[key]=map;
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+ const latlngs=[];
+ data.points.forEach((p,i)=>{const ll=[p[1],p[2]];latlngs.push(ll);L.marker(ll).addTo(map).bindPopup(`<b>${i+1}. ${p[0]}</b><br>${p[3]}<br><a target="_blank" rel="noopener" href="${gmaps(p[1],p[2])}">Открыть в Google Maps</a>`);});
+ L.polyline(latlngs,{color:"#0b6b78",weight:4,opacity:.8,dashArray:"7 7"}).addTo(map);
+ const box=document.getElementById("points-"+key);
+ data.points.forEach((p,i)=>{const el=document.createElement("article");el.className="point";el.innerHTML=`<span class="pill">Точка ${i+1}</span><h3>${p[0]}</h3><p>${p[3]}</p><div class="coords">${p[1].toFixed(5)}, ${p[2].toFixed(5)}</div><div class="links"><a target="_blank" rel="noopener" href="${gmaps(p[1],p[2])}">Координаты в Google Maps ↗</a></div>`;box.appendChild(el);});
+ const all=document.createElement("p");all.className="links";all.innerHTML=`<a target="_blank" rel="noopener" href="${routeLink(data.points)}">Открыть весь пеший маршрут в Google Maps ↗</a>`;box.after(all);
+}
+Object.entries(itineraries).forEach(([k,v])=>initMap(k,v));
+document.querySelectorAll(".tabs button").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b===btn));
+ document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===btn.dataset.tab));
+ setTimeout(()=>maps[btn.dataset.tab].invalidateSize(),100);
+}));
+</script>
+</body></html>
